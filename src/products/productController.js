@@ -11,7 +11,8 @@ const router = express.Router();
 
 router.get("/", async (req, res, next) => {
   const { skip, limit } = req.query;
-  const products = await getAllProducts({ skip, limit });
+
+  const products = await getAllProducts({ skip: +skip, limit: +limit });
   res.json(products);
 });
 
@@ -38,7 +39,7 @@ router.get("/:id", checkIdMiddleWare, async (req, res, next) => {
   }
 });
 
-router.put("/:id", checkIdMiddleWare ,async (req, res, next) => {
+router.put("/:id", checkIdMiddleWare, async (req, res, next) => {
   try {
     const { body } = req;
     const { id } = req.params;

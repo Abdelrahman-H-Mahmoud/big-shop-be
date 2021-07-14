@@ -1,6 +1,10 @@
 import { find, findById, save, update } from "./productRepo.js";
+const SKIP = 0;
+const LIMIT = 10;
+export const getAllProducts = ({ skip = SKIP, limit = LIMIT }) => {
+  skip = isNaN(skip) ? SKIP : skip;
+  limit = isNaN(limit) ? LIMIT : limit;
 
-export const getAllProducts = ({ skip = 0, limit = 10 }) => {
   return find({ skip, limit });
 };
 
