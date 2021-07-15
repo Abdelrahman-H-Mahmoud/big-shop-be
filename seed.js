@@ -1,9 +1,11 @@
-import productModel from "./src/products/productModel.js";
-import db from "./data/db.json";
-export default async function seed() {
+const productModel = require("./src/products/productModel.js");
+const db = require("./data/db.json");
+async function seed() {
   const size = await productModel.estimatedDocumentCount();
-  if(size === 0){
+  if (size === 0) {
     await productModel.insertMany(db.products);
     console.log("Data Inserted");
   }
 }
+
+module.exports = seed;

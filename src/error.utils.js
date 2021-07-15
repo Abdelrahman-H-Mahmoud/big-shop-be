@@ -1,13 +1,18 @@
-export class NotFoundError extends Error {
+class NotFoundError extends Error {
   constructor(msg) {
     super(msg);
     this.name = "NotFoundError";
   }
 }
 
-export class BadRequestError extends Error {
+class BadRequestError extends Error {
   constructor(msg) {
     super(msg);
     this.name = "BadRequestError";
   }
+}
+
+module.exports = {
+  NotFoundError,
+  BadRequestError
 }

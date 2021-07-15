@@ -1,12 +1,12 @@
-import express from "express";
-import {
+const express = require("express");
+const {
   getAllProducts,
   getProductById,
   addProduct,
   updateProduct,
-} from "./productService.js";
-import { NotFoundError, BadRequestError } from "../error.utils.js";
-import { checkIdMiddleWare } from "../middlewares/index.js";
+} = require("./productService");
+const { NotFoundError, BadRequestError } = require("../error.utils.js");
+const { checkIdMiddleWare } = require("../middlewares");
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
@@ -51,4 +51,4 @@ router.put("/:id", checkIdMiddleWare, async (req, res, next) => {
   }
 });
 
-export default router;
+module.exports = router;

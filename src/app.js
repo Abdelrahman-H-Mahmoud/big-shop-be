@@ -1,7 +1,7 @@
-import express from "express";
-import productRouter from "./products/index.js";
-import { errorMiddleWare } from "./middlewares/index.js";
-import cors from "cors";
+const express = require("express")
+const { productRouter } = require("./products")
+const { errorMiddleWare } = require("./middlewares");
+const cors = require("cors")
 
 const app = express();
 
@@ -13,4 +13,4 @@ app.use(cors());
 app.use("/api/products", productRouter);
 
 app.use(errorMiddleWare);
-export default app;
+module.exports = app;

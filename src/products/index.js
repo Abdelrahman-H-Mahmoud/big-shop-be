@@ -1,4 +1,7 @@
-export * from "./productService.js";
-import productRouter from "./productController.js";
+const productService = require("./productService");
+const productRouter = require("./productController");
 
-export default productRouter;
+module.exports = {
+    productService,
+    productRouter
+}
