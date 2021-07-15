@@ -1,7 +1,7 @@
 import http from "http";
 import app from "./src/app.js";
 import mongoose from "mongoose";
-
+import seed from "./seed.js";
 const server = http.createServer(app).listen(3000, async () => {
   console.log("App is running");
   mongoose
@@ -11,6 +11,7 @@ const server = http.createServer(app).listen(3000, async () => {
     })
     .then(() => {
       console.log("Db Connected");
+      seed();
     });
 });
 
